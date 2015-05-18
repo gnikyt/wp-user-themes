@@ -18,12 +18,11 @@ add_action('personal_options_update', 'wp_user_themes_profile_update');
 add_action('edit_user_profile_update', 'wp_user_themes_profile_update');
 
 function wp_user_themes($value) {
-  $user = get_current_user_id();
-
-  if ($user > 0) {
-    $user_theme = get_the_author_meta('user_theme', $user) ?: get_option('template');
-
-    return $user_theme;
+  $user   = get_current_user_id();
+  $option = get_the_author_meta('user_theme', $user);
+  
+  if ($user > 0 && ! empty($option)) {
+    return $option;
   }
   
   return $value;
@@ -31,7 +30,8 @@ function wp_user_themes($value) {
 
 function wp_user_themes_profile($user) {
   $themes     = wp_get_themes();
-  $user_theme = get_the_author_meta('user_theme', $user->ID) ?: get_option('template');
+  $option     = get_the_author_meta('user_theme', $user);
+  $user_theme = ! empty($option) ? $option : get_option('template');
   ?>
   <h3>Theme</h3>
 
