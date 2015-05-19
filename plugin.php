@@ -19,8 +19,8 @@ add_action('edit_user_profile_update', 'wp_user_themes_profile_update');
 
 function wp_user_themes($value) {
   $user   = get_current_user_id();
-  $option = get_the_author_meta('user_theme', $user);
-  
+  $option = get_user_meta($user, 'user_theme', true);
+
   if ($user > 0 && ! empty($option)) {
     return $option;
   }
@@ -30,7 +30,7 @@ function wp_user_themes($value) {
 
 function wp_user_themes_profile($user) {
   $themes     = wp_get_themes();
-  $option     = get_the_author_meta('user_theme', $user);
+  $option     = get_user_meta($user, 'user_theme', true);
   $user_theme = ! empty($option) ? $option : get_option('template');
   ?>
   <h3>Theme</h3>
@@ -57,6 +57,6 @@ function wp_user_themes_profile_update($user) {
   }
 
   if (array_key_exists('user_theme', $_POST)) {
-    update_usermeta($user, 'user_theme', $_POST['user_theme']);
+    update_user_meta($user, 'user_theme', $_POST['user_theme']);
   }
 }
