@@ -1,5 +1,7 @@
 # WP User Themes
 
+[![Build Status](https://travis-ci.org/tyler-king/wp-user-themes.svg)](https://travis-ci.org/tyler-king/wp-user-themes)
+
 A simple plugin which displays a theme dropdown in the user's profile 
 allowing them to switch themes.
 
