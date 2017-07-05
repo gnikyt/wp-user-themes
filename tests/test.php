@@ -1,4 +1,5 @@
 <?php
+
 class PluginTest extends WP_UnitTestCase {
  /**
  * @test
@@ -67,8 +68,8 @@ class PluginTest extends WP_UnitTestCase {
     global $current_user;
     
     $create_user  = $this->factory->user->create_and_get();
-	$current_user = wp_signon([
-      'user_login'    => $create_user->user_login,
+  	$current_user = wp_signon([
+      'user_login' => $create_user->user_login,
       'user_password' => 'password'
     ], false);
     update_user_meta($current_user->ID, 'user_theme', 'phpunit_theme');
@@ -86,8 +87,8 @@ class PluginTest extends WP_UnitTestCase {
     global $current_user;
     
     $create_user  = $this->factory->user->create_and_get();
-	$current_user = wp_signon([
-      'user_login'    => $create_user->user_login,
+	  $current_user = wp_signon([
+      'user_login' => $create_user->user_login,
       'user_password' => 'password'
     ], false);
     update_user_meta($current_user->ID, 'user_theme', 'phpunit_theme');
@@ -105,8 +106,8 @@ class PluginTest extends WP_UnitTestCase {
     global $current_user;
     
     $create_user  = $this->factory->user->create_and_get();
-	$current_user = wp_signon([
-      'user_login'    => $create_user->user_login,
+	  $current_user = wp_signon([
+      'user_login' => $create_user->user_login,
       'user_password' => 'password'
     ], false);
     update_user_meta($current_user->ID, 'user_theme', 'phpunit_theme');
@@ -124,8 +125,8 @@ class PluginTest extends WP_UnitTestCase {
     global $current_user;
     
     $create_user  = $this->factory->user->create_and_get();
-	$current_user = wp_signon([
-      'user_login'    => $create_user->user_login,
+	  $current_user = wp_signon([
+      'user_login' => $create_user->user_login,
       'user_password' => 'password'
     ], false);
 
@@ -142,8 +143,8 @@ class PluginTest extends WP_UnitTestCase {
     global $current_user;
     
     $create_user  = $this->factory->user->create_and_get();
-	$current_user = wp_signon([
-      'user_login'    => $create_user->user_login,
+	  $current_user = wp_signon([
+      'user_login' => $create_user->user_login,
       'user_password' => 'password'
     ], false);
 
@@ -160,8 +161,8 @@ class PluginTest extends WP_UnitTestCase {
     global $current_user;
     
     $create_user  = $this->factory->user->create_and_get();
-	$current_user = wp_signon([
-      'user_login'    => $create_user->user_login,
+	  $current_user = wp_signon([
+      'user_login' => $create_user->user_login,
       'user_password' => 'password'
     ], false);
 

@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: WP User Themes
- * Plugin URI:  http://github.com/tyler-king/wp-user-themes
+ * Plugin URI:  http://github.com/ohmybrew/wp-user-themes
  * Description: Allows users pick a theme in their profile section
  * Version:     1.0
  * Author:      Tyler King
- * Author URI:  http://github.com/tyler-king
+ * Author URI:  http://github.com/ohmybrew
  * License:     MIT
  */
  # https://codex.wordpress.org/Plugin_API/Filter_Reference#Blog_Information_and_Option_Filters
@@ -29,8 +29,8 @@ function wp_user_themes($value) {
 }
 
 function wp_user_themes_profile($user) {
-  $themes     = wp_get_themes();
-  $option     = get_user_meta($user, 'user_theme', true);
+  $themes = wp_get_themes();
+  $option = get_user_meta($user, 'user_theme', true);
   $user_theme = ! empty($option) ? $option : get_option('template');
   ?>
   <h3>Theme</h3>
@@ -41,7 +41,7 @@ function wp_user_themes_profile($user) {
       <td>
         <select name="user_theme">
           <?php foreach($themes as $theme) { ?>
-            <option value="<?php print $theme->get_template(); ?>" <?php if ($theme->get_template() == $user_theme) { ?>selected<?php } ?>><?php print $theme->get('Name'); ?></option>
+            <option value="<?php print $theme->get_template(); ?>" <?php if ($theme->get_template() == $user_theme) { ?>selected<?php } ?>><?php print $theme->get('Name'); ?> (<?php print $theme->get_template(); ?>)</option>
           <?php } ?>
         </select>
         <span class="description">Choose a theme you wish to use.</span>
