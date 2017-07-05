@@ -25,7 +25,7 @@ class PluginTest extends WP_UnitTestCase {
  * This test will ensure we receieve the same value back for a theme (using get_option)
  */
   function itShouldBeTheSameThemeUsingGetOptionTemplate() {
-    $this->assertContains(get_option('template'), ['twentyfourteen', 'twentyfifteen']);
+    $this->assertEquals(get_option('template'), 'default');
   }
   
  /**
@@ -34,7 +34,7 @@ class PluginTest extends WP_UnitTestCase {
  * This test will ensure we receieve the same value back for a theme (using get_option)
  */
   function itShouldBeTheSameThemeUsingGetOptionStylesheet() {
-    $this->assertContains(get_option('stylesheet'), ['twentyfourteen', 'twentyfifteen']);
+    $this->assertEquals(get_option('stylesheet'), 'default');
   }
   
  /**
@@ -43,7 +43,7 @@ class PluginTest extends WP_UnitTestCase {
  * This test will ensure we receieve the same value back for a theme (using get_template)
  */
   function itShouldBeTheSameThemeUsingGetTemplate() {
-    $this->assertContains(get_template(), ['twentyfourteen', 'twentyfifteen']);
+    $this->assertEquals(get_template(), 'default');
   }
   
  /**
@@ -130,7 +130,7 @@ class PluginTest extends WP_UnitTestCase {
       'user_password' => 'password'
     ], false);
 
-    $this->assertContains(get_option('stylesheet'), ['twentyfourteen', 'twentyfifteen']);
+    $this->assertEquals(get_option('stylesheet'), 'default');
   }
   
  /**
@@ -148,7 +148,7 @@ class PluginTest extends WP_UnitTestCase {
       'user_password' => 'password'
     ], false);
 
-    $this->assertContains(get_option('template'), ['twentyfourteen', 'twentyfifteen']);
+    $this->assertEquals(get_option('template'), 'default');
   }
   
  /**
@@ -166,7 +166,7 @@ class PluginTest extends WP_UnitTestCase {
       'user_password' => 'password'
     ], false);
 
-    $this->assertContains(get_template(), ['twentyfourteen', 'twentyfifteen']);
+    $this->assertEquals(get_template(), 'default');
   }
 }
 
